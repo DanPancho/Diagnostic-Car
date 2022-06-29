@@ -1,0 +1,39 @@
+.contenedor{
+    background-color: rgb(14, 78, 255);
+    margin-top: 3em;
+    padding-top: 1em;
+    position: fixed;
+    color: #fff;
+    width: 15em;
+    height: 100vh;
+    animation: barraLateral 1s;
+}
+.opcionesUl li{
+    margin-top: 1em;
+}
+img{
+    width: 2em;
+    height: 2em;
+}
+hr{
+    color: #fff;
+    height: 0.2em;
+    background-color: #fff;
+}
+
+li:hover{
+    background-color: rgb(97, 94, 94);
+}
+li{
+    height: 2em;
+}
+
+@keyframes barraLateral {
+    0%{
+        left: -15em;
+    }
+    50%{
+        left: 0em;
+    }
+    
+}
