@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   texto_init:string;
   btn1:boolean;
@@ -25,8 +25,6 @@ export class LoginComponent implements OnInit {
     pass: new FormControl()
   })
 
-  ngOnInit(): void {
-  }
 
   onGoogle(){
     this.login_service.loginGoogle().then((response)=>{

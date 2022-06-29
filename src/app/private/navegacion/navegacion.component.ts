@@ -7,7 +7,7 @@ import { user } from '../interfaces/user';
   templateUrl: './navegacion.component.html',
   styleUrls: ['./navegacion.component.css']
 })
-export class NavegacionComponent implements OnInit {
+export class NavegacionComponent{
 
   user:user|undefined;
   constructor(private login_service:LoginService,private router:Router) {
@@ -18,9 +18,6 @@ export class NavegacionComponent implements OnInit {
         name: data?.displayName
       }
     })
-  }
-
-  ngOnInit(): void {
   }
   onLogout(){
     this.login_service.logout()

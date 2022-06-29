@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './barralateral.component.html',
   styleUrls: ['./barralateral.component.css']
 })
-export class BarralateralComponent implements OnInit {
+export class BarralateralComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

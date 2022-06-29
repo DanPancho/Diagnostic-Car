@@ -8,7 +8,7 @@ import { user } from '../interfaces/user';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   user:user | undefined;
   descripcion1:boolean;
@@ -26,10 +26,6 @@ export class HomeComponent implements OnInit {
     this.descripcion2 = false;
     this.descripcion3 = false;
   }
-
-  ngOnInit(): void {
-  }
-
   modalElec(dato:number){
     if(dato == 1){
       this.descripcion1 = true;
