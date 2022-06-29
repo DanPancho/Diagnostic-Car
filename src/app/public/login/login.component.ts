@@ -28,20 +28,12 @@ export class LoginComponent {
 
   onGoogle(){
     this.login_service.loginGoogle().then((response)=>{
-      if(!this.verificacionStatus(response.status)){
-        alert("No se pudo iniciar sesion...")
-      }else{
-        this.router.navigate(['home']);
-      }
+      this.repuestaStatus(response.status,"l")
     });
   }
   onFacebook(){
     this.login_service.loginFacebook().then((response)=>{
-      if(!this.verificacionStatus(response.status)){
-        alert("No se pudo iniciar sesion...")
-      }else{
-        this.router.navigate(['home']);
-      }
+      this.repuestaStatus(response.status,"l")
     });
   }
 
@@ -51,21 +43,12 @@ export class LoginComponent {
     if(this.btn1){
       // Login
       this.login_service.loginEmail(login).then((response)=>{
-        if(!this.verificacionStatus(response.status)){
-          alert("No se pudo iniciar sesion...")
-        }else{
-          this.router.navigate(['home']);
-        }
+        this.repuestaStatus(response.status,"l")
       })
     }else{
       // Registro
       this.login_service.createUser(login).then((response)=>{
-        if(!this.verificacionStatus(response.status)){
-          alert("No se pudo crear el usuario...")
-        }else{
-          // activar login
-          this.onChange2();
-        }
+        this.repuestaStatus(response.status,"r")
       })
      
     }
@@ -87,5 +70,29 @@ export class LoginComponent {
       return false;
     }
     return true;
+  }
+
+  repuestaStatus(status:number,accion:string){
+    if(!this.verificacionStatus(status)){
+      this.validacionAccion(accion);
+    }else{
+      this.onMove(accion)
+    }
+  }
+
+  validacionAccion(accion:string){
+    if(accion == "l"){
+      alert("No se pudo iniciar sesion...")
+    }else{
+      alert("No se pudo crear el usuario...")
+    }
+  }
+
+  onMove(accion:string){
+    if(accion == "l"){
+      this.router.navigate(['home']);
+    }else{
+      this.onChange2();
+    }
   }
 }
