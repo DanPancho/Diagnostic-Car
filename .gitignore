@@ -44,5 +44,3 @@ Thumbs.db
 #snar
 /.scannerwork
 
-#bug test
-/src/test.ts
