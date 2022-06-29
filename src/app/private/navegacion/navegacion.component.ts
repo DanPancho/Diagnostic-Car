@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from 'src/app/public/services/login/login.service';
 import { Router } from '@angular/router';
-import { user } from '../interfaces/user';
+import { User } from '../interfaces/user';
 @Component({
   selector: 'app-navegacion',
   templateUrl: './navegacion.component.html',
@@ -9,7 +9,7 @@ import { user } from '../interfaces/user';
 })
 export class NavegacionComponent{
 
-  user:user|undefined;
+  user:User|undefined;
   constructor(private login_service:LoginService,private router:Router) {
     this.login_service.getUser().subscribe((data)=>{
       this.user = {

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/public/services/login/login.service';
-import { user } from '../interfaces/user';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { user } from '../interfaces/user';
 })
 export class HomeComponent {
 
-  user:user | undefined;
+  user:User | undefined;
   descripcion1:boolean;
   descripcion2:boolean;
   descripcion3:boolean;

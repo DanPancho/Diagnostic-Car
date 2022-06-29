@@ -3,8 +3,8 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-import { login } from '../../interfaces/login';
-import { response } from '../../interfaces/response';
+import { Login } from '../../interfaces/login';
+import { Response } from '../../interfaces/response';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class LoginService {
   }
 
   async loginGoogle(){
-    let response: response;
+    let response: Response;
     try{
       await this.authF.signInWithPopup(new this.authfirebase.GoogleAuthProvider())
       return response = {
@@ -35,7 +35,7 @@ export class LoginService {
   }
 
   async loginFacebook(){
-    let response: response;
+    let response: Response;
     try{
       await this.authF.signInWithPopup(new this.authfirebase.FacebookAuthProvider())
       return response = {
@@ -51,8 +51,8 @@ export class LoginService {
       }
     }
   }
-  async createUser(newEmail: login):Promise<response>{
-    let response:response;
+  async createUser(newEmail: Login):Promise<Response>{
+    let response:Response;
     try{
       console.log(newEmail)
       await this.authF.createUserWithEmailAndPassword(newEmail.email, newEmail.pass);
@@ -72,8 +72,8 @@ export class LoginService {
     }
   }
 
-  async loginEmail(newEmail: login):Promise<response>{
-    let response:response;
+  async loginEmail(newEmail: Login):Promise<Response>{
+    let response:Response;
     try{
       await this.authF.signInWithEmailAndPassword(newEmail.email, newEmail.pass);
       response = {

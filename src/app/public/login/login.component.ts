@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { login } from '../interfaces/login';
+import { Login } from '../interfaces/login';
 import { LoginService } from '../services/login/login.service';
 import { Router } from '@angular/router';
 
@@ -46,7 +46,7 @@ export class LoginComponent {
   }
 
   onSubmit(){
-    const login:login = this.form.value;
+    const login:Login = this.form.value;
     // Funcion con login
     if(this.btn1){
       // Login

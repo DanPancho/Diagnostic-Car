@@ -1,4 +1,4 @@
-export interface response {
+export interface Response {
     status: number
     message: string
     date: Date
