@@ -16,17 +16,16 @@ export class LoginService {
     this.login = false;
   }
 
-  async loginGoogle(){
-    let response: Response;
+  async loginGoogle():Promise<Response>{
     try{
       await this.authF.signInWithPopup(new this.authfirebase.GoogleAuthProvider())
-      return response = {
+      return {
         status: 200,
         message: "Se logro iniciar sesion con exito!",
         date: new Date()
       }
     }catch(e){
-      return response = {
+      return {
         status: 405,
         message: "No se pudo crear el nuevo usuario",
         date: new Date()
@@ -34,17 +33,16 @@ export class LoginService {
     }
   }
 
-  async loginFacebook(){
-    let response: Response;
+  async loginFacebook():Promise<Response>{
     try{
       await this.authF.signInWithPopup(new this.authfirebase.FacebookAuthProvider())
-      return response = {
+      return {
         status: 200,
         message: "Se logro iniciar sesion con exito!",
         date: new Date()
       }
     }catch(e){
-      return response = {
+      return {
         status: 405,
         message: "No se pudo crear el nuevo usuario",
         date: new Date()
@@ -52,44 +50,38 @@ export class LoginService {
     }
   }
   async createUser(newEmail: Login):Promise<Response>{
-    let response:Response;
     try{
-      console.log(newEmail)
       await this.authF.createUserWithEmailAndPassword(newEmail.email, newEmail.pass);
-      response = {
+      return {
         status: 200,
         message: "Se logro crear con exito el nuevo usuario!",
         date: new Date()
       }
-      return response
     }catch(e){  
-      response = {
+ 
+      return {
         status: 403,
         message: "No se pudo crear el nuevo usuario",
         date: new Date()
-      }
-      return response;
+      };
     }
   }
 
   async loginEmail(newEmail: Login):Promise<Response>{
-    let response:Response;
     try{
       await this.authF.signInWithEmailAndPassword(newEmail.email, newEmail.pass);
-      response = {
+      return {
         status: 200,
         message: "Se logro iniciar sesion con exito!",
         date: new Date()
       }
-      return response
     }catch(e){
-      
-      response = {
+
+      return {
         status: 404,
         message: "No se pudo iniciar sesion",
         date: new Date()
-      }
-      return response;
+      };
     }
   }
 

@@ -15,9 +15,10 @@ export class LoginComponent {
   btn1:boolean;
   btn2:boolean;
   constructor(private login_service: LoginService, private router: Router) {
-    this.texto_init = "Bienvenido!"
-    this.btn1 = true;
+    this.texto_init = ""
+    this.btn1 = false;
     this.btn2 = false;
+    this.onChange2();
   }
 
   form = new FormGroup({
