@@ -12,7 +12,15 @@ const routes: Routes = [
     path:"home",component:HomeComponent
   },
   {
-    path:"electronica",component:ElectronicaComponent
+    path:"electronica", children: [
+      {path: "audio",component:ElectronicaComponent},
+      {path: "video", component:ElectronicaComponent},
+      {path: "alarmas", component: ElectronicaComponent},
+      {path: "scanner", component: ElectronicaComponent},
+      {path: "diagnosticos", component: ElectronicaComponent},
+      {path: "luces", component: ElectronicaComponent},
+      {path: "adaptadores", component: ElectronicaComponent}
+    ]
   },
   {
     path:"**", redirectTo: "auth/login"

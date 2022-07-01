@@ -4,20 +4,20 @@
         <div class="opciones">
             <div>
                 <div class="cont_descripcion">
-                    <button class="button" (click)="onElectronica()" (mouseover)="modalElec(1)" (mouseleave)="descModal(1)"><img alt="img_elec" src="https://img.icons8.com/color/48/000000/electricity-hazard.png"/> Electronica</button>
+                    <button class="button" (click)="onMove('electronica/audio')" (mouseover)="modalElec(1)" (mouseleave)="descModal(1)"><img alt="img_elec" src="https://img.icons8.com/color/48/000000/electricity-hazard.png"/> Electronica</button>
                     <div class="descripcion" style="position: absolute; z-index: 1;" *ngIf="descripcion1">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus blanditiis voluptate ratione molestiae doloremque laborum minus neque nesciunt. Vitae atque corporis aut quaerat itaque aspernatur odio magnam in nisi similique.
                     </div>
                 </div>
                 
                 <div class="cont_descripcion">
-                    <button class="button" (mouseover)="modalElec(2)" (mouseleave)="descModal(2)"> <img alt="img_Mec" src="https://img.icons8.com/color/48/000000/mechanic-skin-type-3.png"/> Mecanica</button>
+                    <button class="button" (click)="onMove('')" (mouseover)="modalElec(2)" (mouseleave)="descModal(2)"> <img alt="img_Mec" src="https://img.icons8.com/color/48/000000/mechanic-skin-type-3.png"/> Mecanica</button>
                     <div class="descripcion" style="position: absolute; z-index: 1;" *ngIf="descripcion2">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus blanditiis voluptate ratione molestiae doloremque laborum minus neque nesciunt. Vitae atque corporis aut quaerat itaque aspernatur odio magnam in nisi similique.
                     </div>
                 </div>
                 <div class="cont_descripcion">
-                    <button class="button-final" (mouseover)="modalElec(3)" (mouseleave)="descModal(3)"> <img alt="img_Rep" src="https://img.icons8.com/color/48/000000/wheel--v1.png"/> Repuestos</button>
+                    <button class="button-final" (click)="onMove('')"(mouseover)="modalElec(3)" (mouseleave)="descModal(3)"> <img alt="img_Rep" src="https://img.icons8.com/color/48/000000/wheel--v1.png"/> Repuestos</button>
                     <div class="descripcion" style="position: absolute; z-index: 1;" *ngIf="descripcion3">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus blanditiis voluptate ratione molestiae doloremque laborum minus neque nesciunt. Vitae atque corporis aut quaerat itaque aspernatur odio magnam in nisi similique.
                     </div>

@@ -45,7 +45,18 @@ export class HomeComponent {
       this.descripcion3 = false;
     }
   }
-  onElectronica(){
-    this.router.navigate(['electronica']);
+  onMove(direccion:string){
+    this.router.navigate([direccion]);
   }
+
+
+  // Electronica
+  // Audio 
+  // Video
+  // Alarmas / GPS
+  // Scanner
+  // Diagnosticos y reseteoos
+  // luces
+  // adaptaciones
+  
 }

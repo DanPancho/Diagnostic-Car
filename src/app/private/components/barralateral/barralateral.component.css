@@ -1,15 +1,17 @@
 .contenedor{
     background-color: rgb(14, 78, 255);
-    margin-top: 3em;
-    padding-top: 1em;
+    padding-top: 3em;
     position: fixed;
     color: #fff;
     width: 15em;
     height: 100vh;
     animation: barraLateral 1s;
+    z-index: 1;
 }
 .opcionesUl li{
     margin-top: 1em;
+    padding-left: 1em;
+    padding-top: 0.15em;
 }
 img{
     width: 2em;
@@ -21,13 +23,23 @@ hr{
     background-color: #fff;
 }
 
-li:hover{
+.opcionesUl li:hover{
     background-color: rgb(97, 94, 94);
 }
+.activar{
+    background-color: rgb(97, 94, 94);
+}
+
 li{
     height: 2em;
 }
 
+.op2 {
+    display: none;
+}
+.op3 {
+    display: none;
+}
 @keyframes barraLateral {
     0%{
         left: -15em;

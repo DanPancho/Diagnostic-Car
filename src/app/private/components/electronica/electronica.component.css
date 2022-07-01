@@ -1,0 +1,51 @@
+.contenedor{
+    margin-top: 5em;
+    position: absolute;
+    width: 70%;
+    margin-left: 20%;
+}
+.init { 
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #f4efe8;
+    box-shadow: 2px 2px 2px rgb(69, 69, 69);
+    animation: up 1s;
+    margin-bottom: 5em;
+}
+.header {
+    width: 25%;
+}
+.content{
+    width: 35%;
+}
+.gift {
+    width: 6em;
+    height: 6em;
+    border-radius: 100px;
+}
+
+.cont1:hover{
+    border-radius: 10px;
+    border: 3px solid #10f808;
+    cursor: pointer;
+}
+.cont2:hover{
+    border-radius: 10px;
+    border: 3px solid #10f808;
+    cursor: pointer;
+}
+.cont3:hover{
+    border-radius: 10px;
+    border: 3px solid #10f808;
+    cursor: pointer;
+}
+
+@keyframes up {
+    0% {
+        margin-top: 200%;
+    }
+}
+
