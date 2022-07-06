@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { carrito } from '../../interfaces/contenido';
+import { Carrito } from '../../interfaces/contenido';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class ContenidoService {
   buscarIdProducto(coleccion:string,name:string){
     return this.firestore.collection(coleccion,ref=>ref.where('nombre','==',name)).get()
   }
-  async agregarCarrito(coleccion:string,productoN:carrito){
+  async agregarCarrito(coleccion:string,productoN:Carrito){
     return await this.firestore.collection(coleccion).add(productoN)
   }
 }

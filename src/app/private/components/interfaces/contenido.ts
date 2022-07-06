@@ -1,10 +1,10 @@
-export interface contenido {
+export interface Contenido {
     header:string
     content:string
     img:string
 }
 
-export interface producto {
+export interface Producto {
     img:string
     descripcion:string
     precio:number
@@ -13,7 +13,7 @@ export interface producto {
     tipo:string
 }
 
-export interface tipo { 
+export interface Tipo { 
     img:string
     descripcion:string
     marca:string
@@ -21,11 +21,11 @@ export interface tipo {
     precio:number
 }
 
-export interface carrito {
+export interface Carrito {
     userid:string | undefined
     productos:{
         productoId:string,
-        producto:tipo
+        producto:Tipo
     }
     total:number
     estado:boolean

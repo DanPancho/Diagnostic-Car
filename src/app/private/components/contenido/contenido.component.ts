@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/public/services/login/login.service';
-import { carrito, producto, tipo } from '../interfaces/contenido';
+import { Carrito, Producto, Tipo } from '../interfaces/contenido';
 import { ContenidoService } from '../services/contenido/contenido.service';
 
 @Component({
@@ -13,9 +13,9 @@ export class ContenidoComponent implements OnInit {
 
   url: string;
   coleccion: string;
-  productos: producto[] = []
-  delantero: tipo[] = []
-  trasero: tipo[] = []
+  productos: Producto[] = []
+  delantero: Tipo[] = []
+  trasero: Tipo[] = []
   constructor(private router: Router, private content_service: ContenidoService, private login_service: LoginService) {
     this.url = this.router.url;
     this.coleccion = '';
@@ -34,7 +34,7 @@ export class ContenidoComponent implements OnInit {
    
   }
 
-  onStart(productos:producto[]){
+  onStart(productos:Producto[]){
     for(let i = 0; i < productos.length; i++){
       if(productos[i].tipo == 'delantero'){
         this.delantero.push(productos[i])
@@ -48,7 +48,7 @@ export class ContenidoComponent implements OnInit {
     let produto = this.delantero[indice]
     this.content_service.buscarIdProducto(this.coleccion,produto.nombre).subscribe((data)=>{
       this.login_service.getUser().subscribe((user)=>{
-        let carrito:carrito;
+        let carrito:Carrito;
         carrito = {
           userid: user?.uid,
           productos:{
@@ -58,7 +58,7 @@ export class ContenidoComponent implements OnInit {
           total: 100,
           estado:false
         }
-        this.content_service.agregarCarrito("carrito",carrito)
+        this.content_service.agregarCarrito("carrito",carrito);
       })
       
     })

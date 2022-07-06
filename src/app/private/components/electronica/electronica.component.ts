@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { contenido } from '../interfaces/contenido';
+import { Contenido } from '../interfaces/contenido';
 import { ContenidoService } from '../services/contenido/contenido.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ContenidoService } from '../services/contenido/contenido.service';
 })
 export class ElectronicaComponent implements OnInit {
   ruta:string
-  content:contenido[] = []
+  content:Contenido[] = []
   ind:number;
   constructor(private router:Router, private content_service:ContenidoService) {
     this.ruta = this.router.url;
