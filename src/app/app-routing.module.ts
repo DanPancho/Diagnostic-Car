@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContenidoComponent } from './private/components/contenido/contenido.component';
 import { ElectronicaComponent } from './private/components/electronica/electronica.component';
 import { HomeComponent } from './private/home/home.component';
 import { LoginComponent } from './public/login/login.component';
@@ -13,7 +14,11 @@ const routes: Routes = [
   },
   {
     path:"electronica", children: [
-      {path: "audio",component:ElectronicaComponent},
+      {path: "audio",component:ElectronicaComponent, children:[
+        {path: "parlantes", component: ContenidoComponent},
+        {path: "amplificadores", component: ContenidoComponent},
+        {path: "cajas", component: ContenidoComponent}
+      ]},
       {path: "video", component:ElectronicaComponent},
       {path: "alarmas", component: ElectronicaComponent},
       {path: "scanner", component: ElectronicaComponent},

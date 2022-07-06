@@ -1,7 +1,7 @@
 <app-navegacion></app-navegacion>
 <app-barralateral></app-barralateral>
 <div class="contenedor">
-    <div class="init" style="margin-bottom: 8em;">
+    <div class="init cont_descripcion" style="margin-bottom: 8em;" *ngIf="ruta == '/electronica/audio'">
         <div>
             <h1>Audio</h1>
         </div>
@@ -9,41 +9,32 @@
             <img src="https://i.gifer.com/origin/ce/ce9b1b80a59bc4090dcded493ccba5f3.gif" alt="img_init" class="gift">
         </div>
     </div>
-    <div class="init cont1">
-        <div class="header">
-            <h2>Instalacion de Bajos y Cajas</h2>
-        </div>
-        <div class="content">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatibus esse, cupiditate facilis
-                voluptatem commodi ut voluptatum soluta.</p>
+    <div class="init cont_descripcion" style="margin-bottom: 8em;" *ngIf="ruta == '/electronica/video'">
+        <div>
+            <h1>Video</h1>
         </div>
         <div>
-            <img src="https://img.icons8.com/fluency/96/000000/unpacking.png" alt="img_instalacion" />
+            <img src="https://static.wixstatic.com/media/cfd0a5_33eaa47db61c460a849bb6c17c18c6d0~mv2.gif" alt="img_init"
+                class="gift">
         </div>
+    </div>
+    <div *ngFor="let item of content; let indice = index">
+        <div class="cont_descripcion">
+            <div class="init cont1" (click)="onClick(content[indice].header,indice)">
+                <div class="header">
+                    <h2>{{item.header}}</h2>
+                </div>
+                <div class="content">
+                    <p>{{item.content}}</p>
+                </div>
+                <div>
+                    <img src="{{item.img}}" alt="img_instalacion" />
+                </div>
+            </div>
+            <router-outlet *ngIf="ind == indice"></router-outlet>
+        </div>
+
+
     </div>
 
-    <div class="init cont2">
-        <div class="header">
-            <h2>Amplificadores</h2>
-        </div>
-        <div class="content">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatibus esse, cupiditate facilis
-                voluptatem commodi ut voluptatum soluta.</p>
-        </div>
-        <div>
-            <img src="https://img.icons8.com/color/96/000000/guitar-amp.png" alt="img_amplificadores" />
-        </div>
-    </div>
-    <div class="init cont3">
-        <div class="header">
-            <h2>Parlantes</h2>
-        </div>
-        <div class="content">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatibus esse, cupiditate facilis
-                voluptatem commodi ut voluptatum soluta.</p>
-        </div>
-        <div>
-            <img src="https://img.icons8.com/color/96/000000/room-sound.png" alt="img_parlante" />
-        </div>
-    </div>
 </div>

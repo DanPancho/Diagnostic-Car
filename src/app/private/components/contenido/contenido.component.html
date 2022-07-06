@@ -1,0 +1,26 @@
+<div class="init">
+    <h5>Delanteras</h5>
+    <div *ngFor="let producto of delantero; let indice = index">
+        <div style="margin-bottom: 1em;">
+            <h4>{{producto.nombre}}</h4>
+            <img src="{{producto.img}}" alt="img_producto" style="width: 5em; height:5em">
+            <p>{{producto.descripcion}}</p>
+            <h5>{{producto.precio}} $</h5>
+            <button class="btn" (click)="onClick1(indice)">Añadir al carrito</button>
+        </div>
+    </div>
+    
+</div>
+<hr>
+<div class="init">
+    <h5>Traseras</h5>
+    <div *ngFor="let producto of trasero; let indice = index">
+        <div style="margin-bottom: 1em;">
+            <h4>{{producto.nombre}}</h4>
+            <img src="{{producto.img}}" alt="img_producto" style="width: 5em; height:5em">
+            <p>{{producto.descripcion}}</p>
+            <h5>{{producto.precio}} $</h5>
+            <button class="btn" (click)="onClick2(indice)">Añadir al carrito</button>
+        </div>
+    </div>
+</div>

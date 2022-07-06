@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 import { ElectronicaComponent } from './private/components/electronica/electronica.component';
+import { ContenidoComponent } from './private/components/contenido/contenido.component';
 
 
 
@@ -28,7 +29,8 @@ import { ElectronicaComponent } from './private/components/electronica/electroni
     HomeComponent,
     NavegacionComponent,
     BarralateralComponent,
-    ElectronicaComponent
+    ElectronicaComponent,
+    ContenidoComponent
 
   ],
   imports: [

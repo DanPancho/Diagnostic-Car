@@ -1,7 +1,3 @@
-.cont{
-    background-color: rgb(255, 0, 0);
-    width: 100%;
-}
 .contenedor { 
     /*
     #191654
@@ -11,7 +7,7 @@
         to bottom right,  #191654,#43C6AC
     );
     width: 100%;
-    height: 100vh;
+    height: calc(100vh);
     background-size: 200% 200%;
     animation: animate-bg 10s infinite ease-in-out;
     display: flex;
@@ -57,7 +53,7 @@
 }
 
 input{
-    width: 20em;
+    width: 100%;
     border-radius: 10px;
     height: 2em;
     border: 1px solid black;
@@ -97,24 +93,36 @@ a {
     }
 }
 
-@media (max-width: 819px) {
+
+@media (max-width: 813px) {
     .contenedor{
         display: block;
         position: absolute;
         padding-top: 25%;
         padding-left: 2%;
         width: 100%;
-        height: 100vh;
         background-size: 400% 400%;
     }
     .contenedorHom{
-        background-color: #fff;
-        margin-left: 0;
+        margin-left: 10%;
         margin-top: 1em;
         padding-left: 2em;
-        width: 22em;
+        width: 75%;
+    }
+
+    .contenedorForm{
+        margin-left: 10%;
+        width: 75%;
     }
 }
 
 
-/* 280, 540, 360, 375 px problema */
+
+@media (max-height: 721px) {
+    .contenedor{
+        height: calc(110vh);
+    }
+}
+
+
+/* 280, 540, 375 px problema */
