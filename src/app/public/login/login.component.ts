@@ -3,9 +3,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Login } from '../interfaces/login';
 import { LoginService } from '../services/login/login.service';
 import { Router } from '@angular/router';
-import { ContenidoService } from 'src/app/private/components/services/contenido/contenido.service';
-import { Carrito } from 'src/app/private/components/interfaces/contenido';
-import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-login',

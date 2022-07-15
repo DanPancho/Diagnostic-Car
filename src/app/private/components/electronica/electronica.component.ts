@@ -19,7 +19,6 @@ export class ElectronicaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarContenido(this.router.url)
-    this.ruta.includes('audio')
   }
 
   cargarContenido(ruta :string){
