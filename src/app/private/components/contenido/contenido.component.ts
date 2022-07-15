@@ -76,7 +76,7 @@ export class ContenidoComponent implements OnInit {
   }
   onClick2(indice: number) {
     let produto = this.trasero[indice]
-    console.log(this.carrito)
+    console.log(produto)
     console.log(this.uid)
   }
   nuevoProducto(data: any, producto: Tipo) {

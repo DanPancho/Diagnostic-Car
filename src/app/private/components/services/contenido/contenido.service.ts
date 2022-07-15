@@ -21,16 +21,16 @@ export class ContenidoService {
     return this.firestore.collection('carrito',ref => ref.where("userid","==",uid)).get()
   }
 
-  async agregarCarrito(coleccion: string,documento:string, productoN: Carrito) {
-    return await this.firestore.collection(coleccion).doc(`${documento}`).update(productoN)
+  agregarCarrito(coleccion: string,documento:string, productoN: Carrito) {
+    return  this.firestore.collection(coleccion).doc(`${documento}`).update(productoN)
   }
 
   obtenerProductosCliente(userId:string | undefined){
     return this.firestore.collection('carrito',ref => ref.where('userid','==',userId)).valueChanges();
   }
 
-  async crearCarrito(nuevoCarrito:Carrito){
-    return await this.firestore.collection('carrito').add(nuevoCarrito);
+  crearCarrito(nuevoCarrito:Carrito){
+    return this.firestore.collection('carrito').add(nuevoCarrito);
   } 
 
   buscarCarrito(uid:string){
