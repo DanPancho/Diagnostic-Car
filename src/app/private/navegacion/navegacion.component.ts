@@ -22,5 +22,6 @@ export class NavegacionComponent{
   onLogout(){
     this.login_service.logout()
     this.router.navigate(['auth/login'])
+
   }
 }

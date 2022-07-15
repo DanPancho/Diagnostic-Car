@@ -7,16 +7,34 @@ import { Carrito } from '../../interfaces/contenido';
 })
 export class ContenidoService {
 
-  constructor(private firestore:AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) { }
 
-  obtenerContenido(coleccion:string){
+  obtenerContenido(coleccion: string) {
     return this.firestore.collection(coleccion).valueChanges();
   }
 
-  buscarIdProducto(coleccion:string,name:string){
-    return this.firestore.collection(coleccion,ref=>ref.where('nombre','==',name)).get()
+  buscarIdProducto(coleccion: string, name: string) {
+    return this.firestore.collection(coleccion, ref => ref.where('nombre', '==', name)).get()
   }
-  async agregarCarrito(coleccion:string,productoN:Carrito){
-    return await this.firestore.collection(coleccion).add(productoN)
+
+  buscarIdCarrito(uid:string | undefined){
+    return this.firestore.collection('carrito',ref => ref.where("userid","==",uid)).get()
   }
+
+  async agregarCarrito(coleccion: string,documento:string, productoN: Carrito) {
+    return await this.firestore.collection(coleccion).doc(`${documento}`).update(productoN)
+  }
+
+  obtenerProductosCliente(userId:string | undefined){
+    return this.firestore.collection('carrito',ref => ref.where('userid','==',userId)).valueChanges();
+  }
+
+  async crearCarrito(nuevoCarrito:Carrito){
+    return await this.firestore.collection('carrito').add(nuevoCarrito);
+  } 
+
+  buscarCarrito(uid:string){
+    return this.firestore.collection('carrito',ref => ref.where('userid','==',uid)).valueChanges();
+  }
+
 }

@@ -24,9 +24,17 @@ export interface Tipo {
 export interface Carrito {
     userid:string | undefined
     productos:{
-        productoId:string,
-        producto:Tipo
+        producto:NuevoProducto[]
     }
     total:number
     estado:boolean
+}
+
+export interface NuevoProducto{
+    productoId:string
+    img:string
+    descripcion:string
+    marca:string
+    nombre:string
+    precio:number
 }

@@ -1,5 +1,4 @@
 .init { 
-    
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -8,4 +7,22 @@
 .btn {
     border-radius: 10px;
     border: 1px solid black;
+}
+
+.content{
+    background-color: #f4efe8;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px rgb(69, 69, 69);
+    border-radius: 10px;
+    padding: 1em;
+    
+}
+
+.content .btn{
+    margin-left: 5%;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 0.5em;
 }

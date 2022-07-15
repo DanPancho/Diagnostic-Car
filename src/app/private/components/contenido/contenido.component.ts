@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/public/services/login/login.service';
-import { Carrito, Producto, Tipo } from '../interfaces/contenido';
+import { Carrito, NuevoProducto, Producto, Tipo } from '../interfaces/contenido';
 import { ContenidoService } from '../services/contenido/contenido.service';
 
 @Component({
@@ -16,57 +16,101 @@ export class ContenidoComponent implements OnInit {
   productos: Producto[] = []
   delantero: Tipo[] = []
   trasero: Tipo[] = []
-  constructor(private router: Router, private content_service: ContenidoService, private login_service: LoginService) {
+  carrito: Carrito[];
+  uid: string | undefined;
+  idCarrito: string;
+  constructor(private login_service:LoginService,private router: Router, private content_service: ContenidoService) {
     this.url = this.router.url;
     this.coleccion = '';
+    this.carrito = [];
+    this.idCarrito = "";
+    this.login_service.getUser().subscribe((data)=>{
+      this.uid = data?.uid;
+      let subscripcion = this.content_service.buscarIdCarrito(this.uid).subscribe((data)=>{
+        this.idCarrito = data.docs[0].id;
+        subscripcion.unsubscribe();
+      })      
+    })
   }
 
   ngOnInit(): void {
-
     let aux = this.url.split('/')
     this.coleccion = "electronica_" + aux[3];
     let subs = this.content_service.obtenerContenido(this.coleccion.toLowerCase()).subscribe((data) => {
       let aux: any = data;
       this.productos = aux;
       this.onStart(this.productos)
-      subs.unsubscribe()
+      if (this.uid != "" && this.uid != undefined) {
+        this.obtenerCarrito(this.uid)
+      }
+      subs.unsubscribe();
     })
-   
+
   }
 
-  onStart(productos:Producto[]){
-    for(let i = 0; i < productos.length; i++){
-      if(productos[i].tipo == 'delantero'){
+  onStart(productos: Producto[]) {
+    for (let i = 0; i < productos.length; i++) {
+      if (productos[i].tipo == 'delantero') {
         this.delantero.push(productos[i])
-      }else{
+      } else {
         this.trasero.push(productos[i])
       }
     }
   }
 
-  onClick1(indice:number){
-    let produto = this.delantero[indice]
-    this.content_service.buscarIdProducto(this.coleccion,produto.nombre).subscribe((data)=>{
-      this.login_service.getUser().subscribe((user)=>{
-        let carrito:Carrito;
-        carrito = {
-          userid: user?.uid,
-          productos:{
-            productoId:data.docs[0].id,
-            producto: produto
-          },
-          total: 100,
-          estado:false
-        }
-        this.content_service.agregarCarrito("carrito",carrito);
-      })
-      
+  onClick1(indice: number) {
+    let producto: Tipo = this.delantero[indice]
+    let sub_id = this.content_service.buscarIdProducto(this.coleccion, producto.nombre).subscribe((data) => {
+      if (this.produtoRepetido(data.docs[0].id)) {
+        alert("ESTE PRODUCTO YA SE ENCUENTRA EN El CARRITO")
+      } else {
+        this.carrito[0].productos.producto.push(this.nuevoProducto(data, producto))
+        this.content_service.agregarCarrito('carrito',this.idCarrito,this.carrito[0]).then(()=>{
+          alert("Se agrego en el carrito con exito!")
+        });
+      }
+      sub_id.unsubscribe();
     })
-    // busqueda del id producto en la base de datos
   }
-  onClick2(indice:number){
+  onClick2(indice: number) {
     let produto = this.trasero[indice]
+    console.log(this.carrito)
+    console.log(this.uid)
+  }
+  nuevoProducto(data: any, producto: Tipo) {
+    return {
+      productoId: data.docs[0].id,
+      img: producto.img,
+      descripcion: producto.descripcion,
+      marca: producto.marca,
+      nombre: producto.nombre,
+      precio: producto.precio
+    }
   }
 
-  
+  produtoRepetido(idProdcuto: string) {
+    for (let i = 0; i < this.carrito[0].productos.producto.length; i++) {
+      if (this.carrito[0].productos.producto[i].productoId == idProdcuto) {
+        return true
+      }
+    }
+    return false
+  }
+
+  obtenerCarrito(userId: string | undefined) {
+    let sub_Productos = this.content_service.obtenerProductosCliente(userId).subscribe((data) => {
+      let aux: any = data;
+      this.carrito = aux;
+      sub_Productos.unsubscribe();
+    })
+  }
+
+  obtenerIdCarrito(){
+    let subscripcion = this.content_service.buscarIdCarrito(this.uid).subscribe((data)=>{
+      this.idCarrito = data.docs[0].id;
+      subscripcion.unsubscribe();
+    })
+
+  }
+
 }
