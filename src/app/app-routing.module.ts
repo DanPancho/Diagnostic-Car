@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarritoComponent } from './private/components/carrito/carrito.component';
 import { ContenidoComponent } from './private/components/contenido/contenido.component';
 import { ElectronicaComponent } from './private/components/electronica/electronica.component';
 import { HomeComponent } from './private/home/home.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
       {path: "adaptadores", component: ElectronicaComponent}
     ]
   },
+  {path: "carrito", component: CarritoComponent},
   {
     path:"**", redirectTo: "auth/login"
   }

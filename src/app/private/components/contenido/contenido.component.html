@@ -1,28 +1,37 @@
 <hr>
+<h5>Delanteras</h5>
 <div class="init">
-    <h5>Delanteras</h5>
+
     <div *ngFor="let producto of delantero; let indice = index">
-        <div style="margin-bottom: 1em; margin-top: 2em;" class="content">
-            <h4 style="margin-bottom: 0.2em;">{{producto.nombre}}</h4>
-            <div class="header">
-                <div>
-                    <img src="{{producto.img}}" alt="img_producto" style="width: 5em; height:5em">
-                </div>
-                <div style="margin-left: 0.5em;">
-                    <h5>{{producto.precio}} $</h5>
-                </div>
+        <div class="card">
+            <img style="width: 100%; height:9em" src="{{producto.img}}" alt="img_producto">
+            <div class="card_content">
+                <h4 class="card_title">{{producto.nombre}}</h4>
+                <h3 class="card_subtitle">{{producto.precio}} $</h3>
+                <p class="card_description">{{producto.descripcion}}</p>
+                <button class="btn card_description" (click)="onClick1(indice)">Añadir al carrito</button>
             </div>
-            <p>{{producto.descripcion}}</p>
-            <button class="btn" (click)="onClick1(indice)">Añadir al carrito</button>
         </div>
+        
     </div>
-    
+
 </div>
 <hr>
+<h5>Traseras</h5>
+
 <div class="init">
-    <h5>Traseras</h5>
+
     <div *ngFor="let producto of trasero; let indice = index">
-        <div style="margin-bottom: 1em; margin-top: 2em;" class="content">
+        <div class="card">
+            <img style="width: 100%; height:9em" src="{{producto.img}}" alt="img_producto">
+            <div class="card_content">
+                <h4 class="card_title">{{producto.nombre}}</h4>
+                <h3 class="card_subtitle">{{producto.precio}} $</h3>
+                <p class="card_description">{{producto.descripcion}}</p>
+                <button class="btn card_description" (click)="onClick1(indice)">Añadir al carrito</button>
+            </div>
+        </div>
+        <!-- <div style="margin-bottom: 1em; margin-top: 2em;" class="content">
             <h4 style="margin-bottom: 0.2em;">{{producto.nombre}}</h4>
             <div class="header">
                 <div>
@@ -35,5 +44,5 @@
             <p>{{producto.descripcion}}</p>
             <button class="btn" (click)="onClick2(indice)">Añadir al carrito</button>
         </div>
+    </div>-->
     </div>
-</div>

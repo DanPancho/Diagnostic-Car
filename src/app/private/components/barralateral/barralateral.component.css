@@ -12,6 +12,7 @@
     margin-top: 1em;
     padding-left: 1em;
     padding-top: 0.15em;
+    margin-right: 1em;
 }
 img{
     width: 2em;
@@ -24,14 +25,19 @@ hr{
 }
 
 .opcionesUl li:hover{
-    background-color: rgb(97, 94, 94);
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
 }
 .activar{
-    background-color: rgb(97, 94, 94);
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
 }
 
 li{
     height: 2em;
+    list-style: none;
 }
 
 .op2 {

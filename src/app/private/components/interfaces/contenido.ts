@@ -37,4 +37,5 @@ export interface NuevoProducto{
     marca:string
     nombre:string
     precio:number
+    cantidad:number
 }

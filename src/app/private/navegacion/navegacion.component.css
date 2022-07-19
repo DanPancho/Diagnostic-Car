@@ -2,6 +2,13 @@
     padding: 0;
     margin: 0;
 }
+.car{
+    margin: 0 1em 0 1em;
+}
+.carimg{
+    width: 2.1em;
+    height: 2.1em;
+}
 .hgm{
     width: 1.5em;
     height: 1.5em;

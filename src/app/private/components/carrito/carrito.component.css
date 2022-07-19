@@ -1,0 +1,24 @@
+.contenedor{
+    margin-top: 5em;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh);
+}
+
+.cabecera {
+   display: flex;
+   justify-content: center;
+}
+
+.tabla {
+    margin-left: 20%;
+}
+
+.table {
+    width: 90% !important;
+}
+
+button{
+    border-radius: 5px;
+    border: 1px solid black;
+}

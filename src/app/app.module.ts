@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 import { ElectronicaComponent } from './private/components/electronica/electronica.component';
 import { ContenidoComponent } from './private/components/contenido/contenido.component';
+import { CarritoComponent } from './private/components/carrito/carrito.component';
 
 
 
@@ -30,7 +31,8 @@ import { ContenidoComponent } from './private/components/contenido/contenido.com
     NavegacionComponent,
     BarralateralComponent,
     ElectronicaComponent,
-    ContenidoComponent
+    ContenidoComponent,
+    CarritoComponent
 
   ],
   imports: [

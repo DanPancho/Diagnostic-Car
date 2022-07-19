@@ -1,0 +1,34 @@
+<app-navegacion></app-navegacion>
+<app-barralateral></app-barralateral>
+<div class="contenedor">
+    <div class="cabecera">
+        <h1 class="header">Carrito de Compas </h1>
+    </div>
+    <div class="tabla table-responsive">
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                </tr>
+
+            </thead>
+            <tbody *ngIf="carrito.length != undefined && carrito.length != 0">
+                    <tr  *ngFor="let producto of carrito[0].productos.producto; let indice = index">
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.marca}}</td>
+                        <td>{{producto.precio}} $</td>
+                        <td>{{producto.cantidad}} <button (click)="onSum(indice,'+')" style="margin: 0 1em 0 1em;">+</button><button (click)="onSum(indice,'-')">-</button></td>
+                        <td><button (click)="onRemove(indice)">Eliminar<img style="width: 2em; height:2em" src="https://img.icons8.com/arcade/64/000000/experimental-trash-arcade.png"/></button></td>
+                    </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="tabla">
+        <h3>Total: {{carrito[0]?.total}} $</h3>
+    </div>
+
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/public/services/login/login.service';
-import { Carrito, Producto, Tipo } from '../interfaces/contenido';
+import { Carrito, NuevoProducto, Producto, Tipo } from '../interfaces/contenido';
 import { ContenidoService } from '../services/contenido/contenido.service';
 
 @Component({
@@ -67,6 +67,8 @@ export class ContenidoComponent implements OnInit {
         alert("ESTE PRODUCTO YA SE ENCUENTRA EN El CARRITO")
       } else {
         this.carrito[0].productos.producto.push(this.nuevoProducto(data, producto))
+        // calculo del total
+        this.calcTotal()
         this.content_service.agregarCarrito('carrito',this.idCarrito,this.carrito[0]).then(()=>{
           alert("Se agrego en el carrito con exito!")
         });
@@ -74,19 +76,25 @@ export class ContenidoComponent implements OnInit {
       sub_id.unsubscribe();
     })
   }
+  calcTotal(){
+    this.carrito[0].productos.producto.forEach((producto)=>{
+      this.carrito[0].total += producto.precio;
+    })
+  }
   onClick2(indice: number) {
     let produto = this.trasero[indice]
     console.log(produto)
     console.log(this.uid)
   }
-  nuevoProducto(data: any, producto: Tipo) {
+  nuevoProducto(data: any, producto: Tipo):NuevoProducto {
     return {
       productoId: data.docs[0].id,
       img: producto.img,
       descripcion: producto.descripcion,
       marca: producto.marca,
       nombre: producto.nombre,
-      precio: producto.precio
+      precio: producto.precio,
+      cantidad: 1
     }
   }
 
