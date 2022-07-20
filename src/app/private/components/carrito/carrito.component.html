@@ -23,12 +23,12 @@
                         <td>{{producto.cantidad}} <button (click)="onSum(indice,'+')" style="margin: 0 1em 0 1em;">+</button><button (click)="onSum(indice,'-')">-</button></td>
                         <td><button (click)="onRemove(indice)">Eliminar<img style="width: 2em; height:2em" src="https://img.icons8.com/arcade/64/000000/experimental-trash-arcade.png"/></button></td>
                     </tr>
-                
             </tbody>
         </table>
     </div>
-    <div class="tabla">
+    <div class="pago">
         <h3>Total: {{carrito[0]?.total}} $</h3>
+        <button (click)="onPaypal()">Realizar Pago</button>
     </div>
 
 </div>

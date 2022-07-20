@@ -66,4 +66,8 @@ export class CarritoComponent {
       this.contenido_service.agregarCarrito('carrito',this.doc,this.carrito[0]);
     }
   }
+
+  onPaypal(){
+    
+  }
 }

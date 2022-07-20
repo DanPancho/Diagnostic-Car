@@ -7,7 +7,7 @@ import { LoginComponent } from './public/login/login.component';
 import { HomeComponent } from './private/home/home.component';
 import { NavegacionComponent } from './private/navegacion/navegacion.component';
 import { BarralateralComponent } from './private/components/barralateral/barralateral.component';
-
+import { NgxPayPalModule } from 'ngx-paypal';
 // Formulario
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -37,6 +37,7 @@ import { CarritoComponent } from './private/components/carrito/carrito.component
   ],
   imports: [
     BrowserModule,
+    NgxPayPalModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

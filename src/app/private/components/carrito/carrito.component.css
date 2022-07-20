@@ -22,3 +22,10 @@ button{
     border-radius: 5px;
     border: 1px solid black;
 }
+
+.pago {
+    margin-left: 20%;
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
