@@ -16,19 +16,25 @@
 
             </thead>
             <tbody *ngIf="carrito.length != undefined && carrito.length != 0">
-                    <tr  *ngFor="let producto of carrito[0].productos.producto; let indice = index">
-                        <td>{{producto.nombre}}</td>
-                        <td>{{producto.marca}}</td>
-                        <td>{{producto.precio}} $</td>
-                        <td>{{producto.cantidad}} <button (click)="onSum(indice,'+')" style="margin: 0 1em 0 1em;">+</button><button (click)="onSum(indice,'-')">-</button></td>
-                        <td><button (click)="onRemove(indice)">Eliminar<img style="width: 2em; height:2em" src="https://img.icons8.com/arcade/64/000000/experimental-trash-arcade.png"/></button></td>
-                    </tr>
+                <tr *ngFor="let producto of carrito[0].productos.producto; let indice = index">
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.marca}}</td>
+                    <td>{{producto.precio}} $</td>
+                    <td>{{producto.cantidad}} <button (click)="onSum(indice,'+')"
+                            style="margin: 0 1em 0 1em;">+</button><button (click)="onSum(indice,'-')">-</button></td>
+                    <td><button (click)="onRemove(indice)">Eliminar<img style="width: 2em; height:2em"
+                                src="https://img.icons8.com/arcade/64/000000/experimental-trash-arcade.png" /></button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
     <div class="pago">
         <h3>Total: {{carrito[0]?.total}} $</h3>
-        <button (click)="onPaypal()">Realizar Pago</button>
-    </div>
+        <div *ngIf="this.carrito[0]?.estado != undefined">
+            <app-reserva *ngIf="this.carrito[0].estado">Reservacion</app-reserva>
+            <ngx-paypal *ngIf="!this.carrito[0].estado" [config]="payPalConfig"></ngx-paypal>
+        </div>
 
+    </div>
 </div>

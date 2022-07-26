@@ -63,22 +63,34 @@ export class ContenidoComponent implements OnInit {
   onClick1(indice: number) {
     let producto: Tipo = this.delantero[indice]
     let sub_id = this.content_service.buscarIdProducto(this.coleccion, producto.nombre).subscribe((data) => {
-      if (this.produtoRepetido(data.docs[0].id)) {
-        alert("ESTE PRODUCTO YA SE ENCUENTRA EN El CARRITO")
-      } else {
-        this.carrito[0].productos.producto.push(this.nuevoProducto(data, producto))
-        // calculo del total
-        this.calcTotal()
-        this.content_service.agregarCarrito('carrito',this.idCarrito,this.carrito[0]).then(()=>{
-          alert("Se agrego en el carrito con exito!")
-        });
+      if(!this.validacionCarrito()){
+        if (this.produtoRepetido(data.docs[0].id)) {
+          alert("ESTE PRODUCTO YA SE ENCUENTRA EN El CARRITO")
+        } else {
+          this.carrito[0].productos.producto.push(this.nuevoProducto(data, producto))
+          // calculo del total
+          this.calcTotal()
+          this.content_service.agregarCarrito('carrito',this.idCarrito,this.carrito[0]).then(()=>{
+            alert("Se agrego en el carrito con exito!")
+          });
+        }
+      }else{
+        alert("Carrito de compras en espera...")
       }
+      
       sub_id.unsubscribe();
     })
   }
+  validacionCarrito(){
+    if(!this.carrito[0].estado){
+      return false
+    }
+    return true
+  }
   calcTotal(){
+    this.carrito[0].total = 0;
     this.carrito[0].productos.producto.forEach((producto)=>{
-      this.carrito[0].total += producto.precio;
+      this.carrito[0].total = Number((this.carrito[0].total + producto.precio).toFixed(2));
     })
   }
   onClick2(indice: number) {

@@ -29,3 +29,6 @@ button{
     width: 70%;
     justify-content: space-between;
 }
+agm-map {
+    height: 300px;
+  }

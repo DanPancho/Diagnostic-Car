@@ -1,0 +1,48 @@
+<div>
+    <button data-bs-toggle="offcanvas" data-bs-target="#openReserva">Reservacion</button>
+    <div class="offcanvas offcanvas-end" id="openReserva" tabindex="-1">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Reservacion</h5>
+            <button class="btn-close" data-bs-dismiss="offcanvas">
+            </button>
+        </div>
+        <hr>
+        <div class="offcanvas-body body">
+            <form action="" [formGroup]="form" (ngSubmit)="onSubmit()" >
+                <label>Nombre: </label>
+                <br>
+                <input readonly type="text" name="nombre" value="{{name}}">
+                <br>
+                <label for="fecha">Fecha instalacion: </label>
+                <br>
+                <input formControlName="fecha" type="datetime-local" name="fecha">
+                <br>
+                <label for="pais">Pais</label>
+                <br>
+                <input type="text" value="Ecuador"  name='pais' readonly>
+                <br>
+                <label for="cuidad">Cuidad: </label>
+                <br>
+                <input name="ciudad" type="text" value="Quito" readonly>
+                <br>
+                <label for="direccion">Direccion: </label>
+                <br>
+                <input formControlName="direccion" type="tel" name="telefono">
+                <br>
+                <label for="telefono">Telefono: </label>
+                <br>
+                <input formControlName="celular" type="text" name="marca">
+                <br>
+                <label for="marca">Marca del Automovil: </label>
+                <br>
+                <input formControlName="marca" type="text" name="marca">
+                <br>
+                <label for="modelo">Modelo del Automovil: </label>
+                <br>
+                <input formControlName="modelo" type="text" name="modelo">
+                <br>
+                <input type="submit" value="Reservar">
+            </form>
+        </div>
+    </div>
+</div>

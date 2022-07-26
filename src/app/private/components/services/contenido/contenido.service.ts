@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Carrito } from '../../interfaces/contenido';
 
@@ -6,8 +6,9 @@ import { Carrito } from '../../interfaces/contenido';
   providedIn: 'root'
 })
 export class ContenidoService {
-
+  $lipiarCarrito = new EventEmitter<boolean>();
   constructor(private firestore: AngularFirestore) { }
+
 
   obtenerContenido(coleccion: string) {
     return this.firestore.collection(coleccion).valueChanges();
@@ -37,4 +38,7 @@ export class ContenidoService {
     return this.firestore.collection('carrito',ref => ref.where('userid','==',uid)).valueChanges();
   }
 
+  crearReserva(coleccion:string,documento:any){
+    return this.firestore.collection(coleccion).add(documento);
+  }
 }
