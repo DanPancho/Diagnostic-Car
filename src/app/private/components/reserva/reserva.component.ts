@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { LoginService } from 'src/app/public/services/login/login.service';
 import { ContenidoService } from '../services/contenido/contenido.service';
 import { Recervacion } from '../interfaces/reservacion';

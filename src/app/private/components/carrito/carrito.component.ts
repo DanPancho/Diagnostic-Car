@@ -75,7 +75,7 @@ export class CarritoComponent implements OnInit {
         label: 'paypal',
         layout: 'vertical'
       },
-      onApprove: (data, actions) => {
+      onApprove: (_data, actions) => {
         actions.order.get().then(() => {
           // Cambiar estado del carrito
           if (this.doc != undefined && this.doc != "") {
@@ -91,7 +91,7 @@ export class CarritoComponent implements OnInit {
       onCancel: () => {
         alert("PAGO CANCELADO")
       },
-      onError: err => {
+      onError: () => {
         alert("ERROR")
       }
     };
