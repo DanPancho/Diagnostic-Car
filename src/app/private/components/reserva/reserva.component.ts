@@ -40,7 +40,8 @@ export class ReservaComponent implements OnInit {
           direccion: direccion,
           telefono: celular,
           marca: marca,
-          modelo: modelo
+          modelo: modelo,
+          estado: false
         }
         this.contenido_service.crearReserva("recervaciones",nuevaRe).then(()=>{
           this.contenido_service.$lipiarCarrito.emit(true);

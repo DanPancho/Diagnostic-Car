@@ -1,44 +1,47 @@
-<div class="contenedor">
-    <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="contenedor_login">
+    <div class="contenedor_blur">
         <div class="contenedorForm">
-            <div class="inp">
-                <p>Usuario: </p>
-                <input formControlName="email" type="email" name="user" placeholder="Usuario">
-            </div>
-            <div class="inp">
-                <p>Constraseña: </p>
-                <input formControlName="pass" type="password" name="password" placeholder="Constraseña">
-            </div>
-            <div class="inp_btn">
-                <div *ngIf="btn1">
-                    <button type="submit">Login</button>
+            <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="bienvenida">
+                    <h1 style="margin-left: 5%; margin-bottom: 0.5em; color: #292F47;" class="text1">{{texto_init}}</h1>
                 </div>
-                <div *ngIf="btn2">
-                    <button type="submit">SignIn</button>
+                <div>
+                    <input class="inp1" formControlName="email" type="email" name="user" placeholder="Usuario">
                 </div>
-            </div>
+                <div>
+                    <input class="inp2" formControlName="pass" type="password" name="password" placeholder="Constraseña">
+                </div>
+                <div class="inp_btn">
+                    <div *ngIf="btn1">
+                        <button type="submit">Login</button>
+                    </div>
+                    <div *ngIf="btn2">
+                        <button type="submit">SignIn</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="registro">
+                    <p *ngIf="btn1">¿Aun no tienes una cuenta? <a (click)="onChange()">Registrate</a></p>
+                    <p *ngIf="btn2">¿Ya tienes una cuenta? <a (click)="onChange2()">Iniciar Sesion</a></p>
+                </div>
+            </form>
         </div>
-
-    </form>
-    <div class="contenedorHom">
-        <div class="bienvenida">
+        <div class="contenedorHom">
+            <div class="imglogocont">
+                <img src="../../../assets/img/Logo.png" alt="logoimg" class="imglogo">
+            </div>
             <div>
-                <h1 class="text1">{{texto_init}}</h1>
+                <div class="cont_log2">
+                    <button (click)="onGoogle()" class="btnGoogle" style="margin-top: 0.5em;">
+                        <img src="https://img.icons8.com/fluency/48/000000/google-plus-circled.png"/><span>Login With Google</span>
+                    </button>
+                </div>
+                <div class="cont_log2">
+                    <button (click)="onFacebook()" class="btnFacebook"><img  alt="img_Facebook"
+                        src="https://img.icons8.com/color/48/000000/facebook.png"/> <span>Login With Facebook</span>  </button>
+                </div>
             </div>
-        </div>
-        <hr>
-        <p *ngIf="btn1">¿Aun no tienes una cuenta? <a (click)="onChange()">Registrate</a></p>
-        <p *ngIf="btn2">¿Ya tienes una cuenta? <a (click)="onChange2()">Iniciar Sesion</a></p>
-        <p>¿Quienes somos? <a>Diagnostic-Car</a></p>
-        <hr>
-        <div class="login_firebase">
-            <div class="img_div">
-                <img (click)="onGoogle()" alt="img_Google" src="https://img.icons8.com/fluency/48/000000/google-logo.png" />
-            </div>
-            <div class="img_div">
-                <img (click)="onFacebook()" alt="img_Facebook"  src="https://img.icons8.com/color/48/000000/facebook.png" />
-            </div>
-
-        </div>
     </div>
 </div>
+
+

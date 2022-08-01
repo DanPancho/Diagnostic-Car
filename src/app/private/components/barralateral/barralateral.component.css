@@ -1,12 +1,15 @@
 .contenedor{
-    background-color: rgb(14, 78, 255);
+    background-color: #292F47;
     padding-top: 3em;
     position: fixed;
     color: #fff;
     width: 15em;
-    height: 100vh;
+    height: calc(100vh);
     animation: barraLateral 1s;
     z-index: 1;
+}
+.openContenedor{
+    display: block !important;
 }
 .opcionesUl li{
     margin-top: 1em;
@@ -41,7 +44,7 @@ li{
 }
 
 .op2 {
-    display: none;
+    display: block;
 }
 .op3 {
     display: none;
@@ -54,4 +57,10 @@ li{
         left: 0em;
     }
     
+}
+
+@media(max-width:1271px){
+    .contenedor{
+        display: none;
+    }
 }

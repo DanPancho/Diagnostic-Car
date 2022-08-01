@@ -7,6 +7,7 @@ import { Carrito } from '../../interfaces/contenido';
 })
 export class ContenidoService {
   $lipiarCarrito = new EventEmitter<boolean>();
+  $activarBarraLateral = new EventEmitter<boolean>();
   constructor(private firestore: AngularFirestore) { }
 
 

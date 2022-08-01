@@ -1,9 +1,9 @@
-<div class="contenedor">
+<div [ngClass]="(onOpen)? 'openContenedor':''" class="contenedor" >
     <nav>
         <ul>
             <li>Electronica <img alt="img_flecha" src="https://img.icons8.com/color/48/000000/circled-down--v1.png"/></li>
             <ul class="opcionesUl op1">
-                <li [ngClass]="(activar == 1)? 'activar':''" (click)="onClick('electronica/audio')">Audio</li>
+                <li [ngClass]="(activar == 1)? 'activar':''"  (click)="onClick('electronica/audio')">Audio</li>
                 <li [ngClass]="(activar == 2)? 'activar':''"  (click)="onClick('electronica/video')">Video</li>
                 <li [ngClass]="(activar == 3)? 'activar':''"  (click)="onClick('electronica/alarmas')">Alarmas</li>
                 <li [ngClass]="(activar == 4)? 'activar':''"  (click)="onClick('electronica/scanner')">Scanner</li>
@@ -14,18 +14,10 @@
             <hr>
             <li>Mecanica <img alt="img_flecha" src="https://img.icons8.com/color/48/000000/circled-down--v1.png"/></li>
             <ul class="opcionesUl op2">
-                <li>Opcion 1</li>
-                <li>Opcion 2</li>
-                <li>Opcion 3</li>
-                <li>Opcion 4</li>
-                <li>Opcion 5</li>
-            </ul>
-            <hr>
-            <li>Repuestos <img  alt="img_flecha" src="https://img.icons8.com/color/48/000000/circled-down--v1.png"/></li>
-            <ul class="opcionesUl op3">
-                <li>Opcion 1</li>
-                <li>Opcion 2</li>
-                <li>Opcion 3</li>
+                <li>Motores</li>
+                <li>Revision Expres</li>
+                <li>Cambio  Aceite</li>
+                <li>Repuestos</li>
             </ul>
         </ul>
     </nav>

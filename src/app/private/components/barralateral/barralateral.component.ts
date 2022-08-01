@@ -1,17 +1,30 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContenidoService } from '../services/contenido/contenido.service';
 
 @Component({
   selector: 'app-barralateral',
   templateUrl: './barralateral.component.html',
   styleUrls: ['./barralateral.component.css']
 })
-export class BarralateralComponent {
+export class BarralateralComponent implements OnInit {
 
   activar: number;
-  constructor(private router: Router) {
+  onOpen:boolean;
+  constructor(private contenido_service:ContenidoService,private router: Router) {
     this.activar = 0;
     this.activacion();
+    this.onOpen = false;
+  }
+
+  ngOnInit(): void {
+    this.contenido_service.$activarBarraLateral.subscribe(data=>{
+      this.onOpen = data;
+    })
+  }
+
+  onClose(){
+    this.onOpen = false;
   }
 
   onClick(direccion: string) {

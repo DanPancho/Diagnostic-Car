@@ -1,16 +1,20 @@
 <nav class="navbar bg-light fixed-top nv">
-    <div class="container-fluid" style="background-color:rgb(14, 78, 255); height: 3em;">
-      <h3 style="color: #fff;">Logo</h3> 
+    <div class="container-fluid" style="background-color:#292F47; height: 3em;">
+      <img src="../../../assets/img/Marca.png" alt="Logo" style="cursor: pointer;" class="logoimg" (click)="onMove()">
       <div class="user">
         <img src="{{user?.img_url}}" class="userimg" alt="userImg">
         <a routerLink="/carrito" class="car">
           <img src="https://img.icons8.com/fluency/48/000000/shopping-cart.png" class="carimg" alt="carrito_img"/>
         </a>
         
-       
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <a (click)="onLogout()" class="nav-link logout">Cerrar Sesión</a>
+        <button *ngIf="!ruta.includes('home') && !barra" (click)="activarBarraLateral(true)" class="navbar-toggler hbg-btn" type="button">
           <img alt="img_nav" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABmJLR0QA/wD/AP+gvaeTAAAAdElEQVRoge3XsQkCQRiE0Vnr0IK0DsGyFwTrGFORC0zujsP3wo3+2exLAAAA+EHbW9vZ45ttr9/7xsLgZ5LLJr+7vtcY4/z5cNrrkr0sDX4kmVsfsoKZ5L73EQAAf6xq6dDUkloCAGAtVUuHppbUEgAAAEneFJZ/WAMmtUwAAAAASUVORK5CYII=" class="hgm">
         </button>
+        <button *ngIf="!ruta.includes('home') && barra" (click)="activarBarraLateral(false)" class="navbar-toggler hbg-btn" type="button">
+          <img src="https://img.icons8.com/fluency/48/000000/cancel.png" class="hgm"/>
+        </button>
+        
       </div>
       
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -18,6 +22,7 @@
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Opciones: </h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <hr>
         <hr>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">

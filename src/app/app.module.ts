@@ -20,6 +20,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
+import { AdministradorComponent } from './protected/components/administrador/administrador.component';
+import { PedidosComponent } from './protected/components/pedidos/pedidos.component';
 
 
 
@@ -35,7 +37,9 @@ import { environment } from 'src/environments/environment';
     ElectronicaComponent,
     ContenidoComponent,
     CarritoComponent,
-    ReservaComponent
+    ReservaComponent,
+    AdministradorComponent,
+    PedidosComponent
 
   ],
   imports: [

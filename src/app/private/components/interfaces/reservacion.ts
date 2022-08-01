@@ -7,4 +7,5 @@ export interface Recervacion{
     telefono:string
     marca:string
     modelo:string
+    estado:boolean
 }
