@@ -45,37 +45,9 @@ export class HomeComponent {
     })
   }
 
-  modalElec(dato: number) {
-    if (dato == 1) {
-      this.descripcion1 = true;
-    } else if (dato == 2) {
-      this.descripcion2 = true;
-    } else if (dato == 3) {
-      this.descripcion3 = true;
-    }
-
-  }
-  descModal(dato: number) {
-    if (dato == 1) {
-      this.descripcion1 = false;
-    } else if (dato == 2) {
-      this.descripcion2 = false;
-    } else if (dato == 3) {
-      this.descripcion3 = false;
-    }
-  }
   onMove(direccion: string) {
     this.router.navigate([direccion]);
   }
 
-
-  // Electronica
-  // Audio 
-  // Video
-  // Alarmas / GPS
-  // Scanner
-  // Diagnosticos y reseteoos
-  // luces
-  // adaptaciones
 
 }

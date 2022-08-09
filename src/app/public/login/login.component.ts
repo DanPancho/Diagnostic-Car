@@ -15,10 +15,10 @@ export class LoginComponent {
   btn1:boolean;
   btn2:boolean;
   constructor(private login_service: LoginService,private router: Router) {
-    this.texto_init = ""
+    this.texto_init = "Inicio Sesion"
     this.btn1 = false;
     this.btn2 = false;
-    this.onChange2();
+    this.onChange();
   }
 
   form = new FormGroup({

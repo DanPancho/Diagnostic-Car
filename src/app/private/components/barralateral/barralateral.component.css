@@ -6,7 +6,7 @@
     width: 15em;
     height: calc(100vh);
     animation: barraLateral 1s;
-    z-index: 1;
+    font-weight: 400;
 }
 .openContenedor{
     display: block !important;
@@ -49,6 +49,30 @@ li{
 .op3 {
     display: none;
 }
+.end-contenedor{
+    position: absolute;
+    bottom: 0%;
+    margin-bottom: 10%;
+}
+.end-contenedor #li-end :hover{
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
+}
+#li-end{
+    margin-top: 1em;
+    padding-left: 1em;
+    padding-top: 0.15em;
+    margin-right: 1em;
+    width: 10em;
+    
+}
+#li-end:hover{
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
+}
+
 @keyframes barraLateral {
     0%{
         left: -15em;

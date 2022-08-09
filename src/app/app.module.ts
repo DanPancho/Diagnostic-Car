@@ -22,9 +22,11 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 import { AdministradorComponent } from './protected/components/administrador/administrador.component';
 import { PedidosComponent } from './protected/components/pedidos/pedidos.component';
+import { MecanicaComponent } from './private/components/mecanica/mecanica.component';
+import { SlideServiciosComponent } from './private/components/slide-servicios/slide-servicios.component';
 
-
-
+// swiper
+import { SwiperModule } from 'swiper/angular';
 
 
 @NgModule({
@@ -39,8 +41,9 @@ import { PedidosComponent } from './protected/components/pedidos/pedidos.compone
     CarritoComponent,
     ReservaComponent,
     AdministradorComponent,
-    PedidosComponent
-
+    PedidosComponent,
+    MecanicaComponent,
+    SlideServiciosComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { PedidosComponent } from './protected/components/pedidos/pedidos.compone
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

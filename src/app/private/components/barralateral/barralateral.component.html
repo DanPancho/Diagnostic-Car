@@ -1,24 +1,22 @@
-<div [ngClass]="(onOpen)? 'openContenedor':''" class="contenedor" >
+<div [ngClass]="(onOpen)? 'openContenedor':''" class="contenedor">
     <nav>
         <ul>
-            <li>Electronica <img alt="img_flecha" src="https://img.icons8.com/color/48/000000/circled-down--v1.png"/></li>
+            <li>Electronica <img alt="img_flecha" src="https://img.icons8.com/color/48/000000/circled-down--v1.png" />
+            </li>
             <ul class="opcionesUl op1">
-                <li [ngClass]="(activar == 1)? 'activar':''"  (click)="onClick('electronica/audio')">Audio</li>
-                <li [ngClass]="(activar == 2)? 'activar':''"  (click)="onClick('electronica/video')">Video</li>
-                <li [ngClass]="(activar == 3)? 'activar':''"  (click)="onClick('electronica/alarmas')">Alarmas</li>
-                <li [ngClass]="(activar == 4)? 'activar':''"  (click)="onClick('electronica/scanner')">Scanner</li>
-                <li [ngClass]="(activar == 5)? 'activar':''"  (click)="onClick('electronica/diagnosticos')">Diagnosticos</li>
-                <li [ngClass]="(activar == 6)? 'activar':''"  (click)="onClick('electronica/luces')">Luces</li>
-                <li [ngClass]="(activar == 7)? 'activar':''"  (click)="onClick('electronica/adaptadores')">Adaptadores</li>
+                <li [ngClass]="(activar == 1)? 'activar':''" (click)="onClick('electronica/express')">Pedidos Express
+                </li>
             </ul>
             <hr>
-            <li>Mecanica <img alt="img_flecha" src="https://img.icons8.com/color/48/000000/circled-down--v1.png"/></li>
+            <li>Mecanica <img alt="img_flecha" src="https://img.icons8.com/color/48/000000/circled-down--v1.png" /></li>
             <ul class="opcionesUl op2">
-                <li>Motores</li>
-                <li>Revision Expres</li>
-                <li>Cambio  Aceite</li>
-                <li>Repuestos</li>
+                <li [ngClass]="(activar == 1)? 'activar':''" (click)="onClick('electronica/express')">Pedidos Express
+                </li>
             </ul>
+            <div class="end-contenedor">
+                <hr>
+                <li id="li-end" [ngClass]="(activar == 1)? 'activar':''"> <b>Proximamente...</b></li>
+            </div>
         </ul>
     </nav>
 </div>

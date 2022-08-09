@@ -1,11 +1,11 @@
 .contenedor_login{
-    background: url('https://puertoricoposts.com/wp-content/uploads/2022/03/p_empieza-crear-taller-mecanico-reparar-tu-coche-202071277-1600945966_1.jpeg') center no-repeat;
+    min-height: calc(100vh);
+    background: url('../../../assets/img/login.jpg') center no-repeat;
     width: 100%;
-    height: calc(100vh);
     background-size: 100% 100%;
 }
 .contenedor_blur {
-    background-color: rgba(255, 255, 255, 0.01);
+    background-color: rgba(255, 255, 255, 0.1);
     width: 100%;
     height: calc(100vh);
     display: flex;
@@ -81,7 +81,7 @@
 }
 
 .btnGoogle{
-    background-color: #dc4e41;
+    background-color: #F4511E;
 }
 
 .btnFacebook{

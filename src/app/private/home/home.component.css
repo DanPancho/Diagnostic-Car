@@ -51,12 +51,12 @@
 }
 
 .electronica { 
-    background: url('https://www.muranautomotriz.com/wp-content/uploads/2021/01/Electronica-Automotriz.jpg') center no-repeat;
+    background: url('../../../assets/img/electronica.jpg') center no-repeat;
     background-size: 100% 100%;
 }
 
 .mecanica { 
-    background: url('https://cdn.diferenciador.com/imagenes/solidaridad-mecanica-y-organica-og.jpg') center no-repeat;
+    background: url('../../../assets/img/mecanica.jpeg') center no-repeat;
     background-size: 100% 100%;
 }
 .btn_contenedor{
@@ -85,4 +85,46 @@
 .card-btn:hover {
     background-position-x: -150%;
     transition: background-position-x 1.5s;
+}
+@media (max-width:1326px) {
+    .card-btn {
+        width: 45%;
+    }
+}
+
+@media (max-width:898px) {
+    .contenedor {
+        display: block;
+    }
+    .electronica, .mecanica{
+        width: 100%;
+        height: calc(100vh);
+        background-size: 100% 100%;
+    }
+    .card-btn {
+        width: 60%;
+    }
+    .card_title{
+        font-size: 3.9em;
+    }
+}
+
+@media (max-width:520px) {
+    .card_title{
+        font-size: 1.9em;
+    }
+    .card_description{
+        font-size: 1em;
+    }
+    .card-btn {
+        font-size: 1em;
+    }
+    .card-btn img { 
+        width: 1.5em;
+        height: 1.5em;
+    }
+    .card_init:hover .card_content {
+        transform: translateY(10%);
+        background-color: rgba(0, 0, 0,0.8);
+    }
 }

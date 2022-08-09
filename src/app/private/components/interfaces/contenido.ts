@@ -39,3 +39,11 @@ export interface NuevoProducto{
     precio:number
     cantidad:number
 }
+
+
+export interface Mecanica { 
+    front:string
+    nombre_servicio:string
+    sub_servicios:string[]
+    img:string
+}

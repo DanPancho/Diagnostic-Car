@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CarritoComponent } from './private/components/carrito/carrito.component';
 import { ContenidoComponent } from './private/components/contenido/contenido.component';
 import { ElectronicaComponent } from './private/components/electronica/electronica.component';
+import { MecanicaComponent } from './private/components/mecanica/mecanica.component';
 import { HomeComponent } from './private/home/home.component';
 import { AdministradorComponent } from './protected/components/administrador/administrador.component';
 import { PedidosComponent } from './protected/components/pedidos/pedidos.component';
@@ -18,30 +19,13 @@ const routes: Routes = [
   {
     path:"electronica", children: [
       {
-        path: "audio",component:ElectronicaComponent, children:[
-        {
-          path: "parlantes", component: ContenidoComponent
-        },
-        {
-          path: "amplificadores", component: ContenidoComponent
-        },
-        {
-          path: "cajas", component: ContenidoComponent
-        }
-      ]},
-      {
-        path: "video", component:ElectronicaComponent},
-      {
-        path: "alarmas", component: ElectronicaComponent},
-      {
-        path: "scanner", component: ElectronicaComponent},
-      {
-        path: "diagnosticos", component: ElectronicaComponent},
-      {
-        path: "luces", component: ElectronicaComponent},
-      {
-        path: "adaptadores", component: ElectronicaComponent
+        path: "express",component:ElectronicaComponent
       }
+    ]
+  },
+  {
+    path:"mecanica",children: [
+      {path: "express",component: MecanicaComponent}
     ]
   },
   {
